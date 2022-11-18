@@ -1,0 +1,20 @@
+name: free5gc-smf
+summary: free5GC SMF
+description: free5GC SMF
+version: "1.1.1"
+license: Apache-2.0
+base: bare
+build-base: ubuntu:22.04
+platforms:
+  amd64:
+
+cmd: ["smf -c /free5gc/config/smfcfg.yaml"]
+
+parts:
+  free5gc-smf:
+    plugin: go
+    source: https://github.com/free5gc/smf
+    source-type: git
+    source-tag: v1.1.1
+    organize:
+      bin/cmd: bin/smf
